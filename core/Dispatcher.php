@@ -10,7 +10,7 @@ class Dispatcher
         Router::parse($this->request->url, $this->request);
         // print_r($this->request);
         $controller = $this->loadController();
-        $controller->view();
+        call_user_func([$controller, $this->request->action], $this->request->params[0]);
     }
 
     private function loadController()
