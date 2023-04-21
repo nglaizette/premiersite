@@ -16,7 +16,14 @@ class Controller
         $view = ROOT.DS.'views'.DS.$this->request->controller.DS.$view.'.php';
 
         require $view;
+    }
 
-        exit($view);
+    public function set($key, $value)
+    {
+        if (is_array($key)) {
+            $this->vars += $key;
+        } else {
+            $this->vars[$key] = $value;
+        }
     }
 }
