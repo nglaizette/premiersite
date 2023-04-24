@@ -18,7 +18,11 @@ class Controller
             return false;
         }
         extract($this->vars);
-        $view = ROOT.DS.'views'.DS.$this->request->controller.DS.$view.'.php';
+        if (0 === strpos($view, '/')) {
+            $view = ROOT.DS.'views'.$view.'.php';
+        } else {
+            $view = ROOT.DS.'views'.DS.$this->request->controller.DS.$view.'.php';
+        }
         ob_start();
 
         require $view;

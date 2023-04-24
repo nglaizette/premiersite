@@ -3,4 +3,4 @@
 	<p>C'est la page d'acceuil</p>
 </div>
 
-<p> Le message est : <?php echo $phrase; ?></p>
+<p> Le message est : <?php echo $this->vars['phrase']; ?></p>
